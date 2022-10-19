@@ -162,7 +162,7 @@ void loop() {
   
   ticks++;
   
-  // Very bad pacer
+  // Pacer
   while ((millis() - startTime) < 1000/TICK_RATE_HZ) {
     continue;  
   }
