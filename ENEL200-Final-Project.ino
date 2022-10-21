@@ -3,6 +3,8 @@
  * Group 31
  * Plant Meter Prototype Board Software
  * 
+ * @author J. L. Hay, and W. W. Beauchamp
+ * 
  * Software is modularised for ease of maintenance
  * It is intended only for use as prototype/demonstration software
  * further software should be developed for a final product

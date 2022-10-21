@@ -1,4 +1,9 @@
-// Piezo.h
+/**
+ * Piezo Buzzer module
+ * 
+ * @author W. W. Beauchamp, and J. L. Hay
+ */
+
 #ifndef Piezo_h
 #define Piezo_h
 

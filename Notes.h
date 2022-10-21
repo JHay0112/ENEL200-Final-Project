@@ -1,5 +1,7 @@
 /**
  * Defines frequency of notes to be played on the piezo buzzer
+ * 
+ * @author W. W. Beauchamp
  */
 
 #ifndef _tone_h

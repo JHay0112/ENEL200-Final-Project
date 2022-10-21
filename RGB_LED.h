@@ -1,9 +1,17 @@
-//RGB_LED.h
+/**
+ * Controls an RGB LED indicator
+ * 
+ * @author W. W. Beauchamp, and J. L. Hay
+ */
+ 
 #ifndef RGB_LED_h
 #define RGB_LED_h
 
 #include <Arduino.h>
 
+/**
+ * Supported animations
+ */
 enum AnimationStyle {
   SAWTOOTH = 0,
   INVERSE_SAWTOOTH,
