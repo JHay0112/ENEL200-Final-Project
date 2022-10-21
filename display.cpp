@@ -1,21 +1,55 @@
+/**
+ * Display module
+ * 
+ * @author J. L. Hay
+ */
+
 #include "display.h"
 
+/**
+ * u8g2 display driver instantiation
+ */
 U8G2_SSD1306_128X64_NONAME_1_SW_I2C u8g2(U8G2_R0, DISPLAY_SCL_PIN, DISPLAY_SDA_PIN, U8X8_PIN_NONE);
 
+/**
+ * External data pointers
+ * 
+ * Once again this doesn't feel safe but was convenient for the purposes of the demo
+ * I would prefer to do this another way
+ */
 extern float soilMoisture[];
 extern float light[];
 extern float temperature[];
 extern float humidity[];
 extern bool pageChanged;
 
+/**
+ * Page tracker
+ */
 static Page currentPage = IDLE;
+/**
+ * Selection options for menu
+ */
 static const Page menuPages[NUM_PAGES] = {TEMPERATURE, HUMIDITY, SOIL_MOISTURE, LIGHT};
+/**
+ * Currently selected page on menu
+ */
 static uint8_t selectedMenuPage = 0;
 
+/**
+ * Initialise display
+ */
 void display_init() {
   u8g2.begin();
 }
 
+/**
+ * Private function that returns a pointer to the highest value in data
+ * Used for histogram scaling
+ * 
+ * @param data The data to find the max of
+ * @param len The length of the data array
+ */
 float* dataMax(float data[], uint8_t len) {
   float* highest = &data[0];
   for (uint8_t i = 0; i < len; i++) {
@@ -26,6 +60,13 @@ float* dataMax(float data[], uint8_t len) {
   return highest;
 }
 
+/**
+ * Display a set of data as a histogram on the screen
+ * 
+ * @param data The data to display
+ * @param len The length of the data to display
+ * @param title The title of the data
+ */
 void display_data(float data[], uint8_t len, const char title[]) {
   
   uint8_t dataWidth = (DISPLAY_WIDTH - 3*DATA_X_OFFSET)/len;
@@ -58,6 +99,11 @@ void display_data(float data[], uint8_t len, const char title[]) {
   } while (u8g2.nextPage());
 }
 
+/**
+ * Displays a string message on the screen
+ * 
+ * @param msg The message to display
+ */
 void display_message(const char msg[]) {
 
   u8g2.firstPage();
@@ -68,6 +114,9 @@ void display_message(const char msg[]) {
   } while (u8g2.nextPage());
 }
 
+/**
+ * Displays the menu screen
+ */
 void display_menu() {
   u8g2.firstPage();
   do {
@@ -97,6 +146,10 @@ void display_menu() {
   } while (u8g2.nextPage());
 }
 
+/**
+ * Intended as a button callback
+ * Handles when the up button is pressed
+ */
 void display_up() {
   switch (currentPage) {
     case IDLE:
@@ -113,6 +166,10 @@ void display_up() {
   
 }
 
+/**
+ * Intended as a button callback
+ * Handles when the down button is pressed
+ */
 void display_down() {
   switch (currentPage) {
     case IDLE:
@@ -129,6 +186,10 @@ void display_down() {
    
 }
 
+/**
+ * Intended as a button callback
+ * Handles when the select button is pressed
+ */
 void display_select() {
    switch (currentPage) {
     case IDLE:
@@ -142,6 +203,10 @@ void display_select() {
    }
 }
 
+/**
+ * Intended as a button callback
+ * Handles when the back button is pressed
+ */
 void display_back() {
    switch (currentPage) {
     case IDLE:
@@ -159,6 +224,9 @@ void display_back() {
    }
 }
 
+/**
+ * Displays the idle screen
+ */
 void display_idle() {
   u8g2.firstPage();
   do {
@@ -170,7 +238,10 @@ void display_idle() {
   } while (u8g2.nextPage());
 }
 
-
+/**
+ * Refreshes the display based on the last registered change to be made.
+ * To be called after each change
+ */
 void display_refresh() {
   if (pageChanged) {
     switch (currentPage) {
