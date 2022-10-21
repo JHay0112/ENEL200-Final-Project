@@ -1,3 +1,11 @@
+/**
+ * Set of definitions that were useful to break out into own module
+ * Note that definitions are being used to ensure fields are in progmem
+ * This is inline with ENCE260 standards
+ * 
+ * @author J. L. Hay
+ */
+
 #ifndef DEF_H
 #define DEF_H
 
