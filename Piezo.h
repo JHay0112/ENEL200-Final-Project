@@ -8,6 +8,9 @@
 #define NOTE_DURATION 240000
 #define NOTE_SPACING 9/10
 
+/**
+ * Defines a note with pitch and duration
+ */
 struct Note {
   uint16_t pitch;
   uint8_t duration;
@@ -20,6 +23,9 @@ Note startupXP[] = {{NOTE_E6, 4}, {NOTE_B5, 4}, {NOTE_A5, 4}, {NOTE_A5, 8}, {NOT
 Note shutdownXP[] = {{NOTE_A6, 4}, {NOTE_E6, 4}, {NOTE_A5, 4}, {NOTE_B5, 2}};*/
 
 
+/**
+ * The piezo class
+ */
 class PiezoTone
 {
   private:

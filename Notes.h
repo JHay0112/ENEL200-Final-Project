@@ -1,3 +1,7 @@
+/**
+ * Defines frequency of notes to be played on the piezo buzzer
+ */
+
 #ifndef _tone_h
 #define _tone_h
 

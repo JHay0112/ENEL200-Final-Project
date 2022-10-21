@@ -1,7 +1,11 @@
 /**
  * ENEL200 Final Project 
  * Group 31
- * Plant Meter Prototype Board
+ * Plant Meter Prototype Board Software
+ * 
+ * Software is modularised for ease of maintenance
+ * It is intended only for use as prototype/demonstration software
+ * further software should be developed for a final product
  */
 
 #include <Wire.h>
