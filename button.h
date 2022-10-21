@@ -1,3 +1,9 @@
+/**
+ * Button module
+ * 
+ * @author J. L. Hay
+ */
+
 #ifndef BUTTON_H
 #define BUTTON_H
 
@@ -11,6 +17,9 @@
 #include "Piezo.h"
 #include "def.h"
 
+/**
+ * Button struct
+ */
 typedef struct {
   uint8_t p;
   bool prevState;
