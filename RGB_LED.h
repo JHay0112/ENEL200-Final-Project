@@ -1,7 +1,7 @@
 /**
  * Controls an RGB LED indicator
  * 
- * @author W. W. Beauchamp, and J. L. Hay
+ * @author W. W. Beauchamp
  */
  
 #ifndef RGB_LED_h

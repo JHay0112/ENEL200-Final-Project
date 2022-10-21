@@ -1,7 +1,7 @@
 /**
  * Piezo Buzzer module
  * 
- * @author W. W. Beauchamp, and J. L. Hay
+ * @author W. W. Beauchamp
  */
 
 #include "Piezo.h"
